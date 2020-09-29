@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ExpensesManager</string>
+    <string name="action_settings">Settings</string>
+    <string name="web_bridge">wb</string>
+    <string name="web_bridge_settings">swb</string>
+    <string name="date_format">yyyy-MM-dd</string>
+
+    <string name="json_id">id</string>
+    <string name="json_name">name</string>
+    <string name="json_comment">comment</string>
+    <string name="json_EXPENSE_VALUE">expenseValue</string>
+    <string name="json_category_id">categoryID</string>
+    <string name="json_date">date</string>
+
+    <string name="json_expensesLimit">expensesLimit</string>
+    <string name="json_expensePeriod">expensePeriod</string>
+    <string name="json_startExpensesDate">startExpensesDate</string>
+
+</resources>

@@ -1,0 +1,95 @@
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+      color: black !important;
+      text-decoration: none;
+  }
+  /*the plus style*/
+  #add-expense-item > a > img {
+      height: 100px;
+      width: 100px;
+  }
+   /*center div style*/
+  .center-div {
+      margin:auto auto;
+      width:6em;
+
+  }
+  /*for text in the center*/
+  .center-text{
+      text-align:center;
+  }
+
+  /*the Graphs style*/
+  .chart-container {
+      height: 200px;
+  }
+  /*the filter page dates style*/
+  #dates-organize > .ui-block-a,
+  #dates-organize > .ui-block-b {
+      padding: 5px;
+  }
+  /*facebook style*/
+  #facebookShareContainer {
+      padding: 5px
+  }
+  /*the header style*/
+  .header-title {
+      font-size: 20px;
+      text-align: center;
+      height: 60px;
+      line-height: 60px
+  }
+  /*headline style*/
+  .headline-text{
+      color:white;
+  }
+    /*the left-panel-btn style*/
+  .left-panel-btn {
+      margin: 0em 0em;
+      padding: 5px 5px 0em 5px;
+  }
+   /*the left-panel-header style*/
+  .left-panel .left-panel-header {
+      font-size: medium;
+      text-align: center
+  }
+  .left-panel > hr {
+      margin-bottom: 10%
+  }
+    /*the button style*/
+  .menu-btn {
+      padding-bottom: 10px;
+  }
+  /*popup message style*/
+  #popup-msg {
+      max-width: 280px;
+      min-width: 180px;
+      text-align: center;
+  }
+   /*the listview style*/
+  .ui-listview {
+      margin: 0em 0em 0em 0em !important;
+  }
+  /*the date in the main page*/
+  #today-date {
+      font-size: 15px;
+      text-align: center;
+  }
+  /*the li listview style*/
+  .ui-listview > li {
+      padding: 0em 0em 0em 0em !important;
+  }
+  /*the h2 li listview style*/
+  .ui-listview > li > h2 {
+      margin: 0em 0em !important;
+  }
+   /*the div li listview style*/
+  .ui-listview > li > div {
+       padding: 0em 0em 0em 0em;
+  }
+  /*for underline text*/
+  .underline-text{
+       text-decoration:underline;
+  }

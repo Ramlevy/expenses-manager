@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expenses Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="Scripts/JQuery/JQueryMobile/jquery.mobile-1.4.5.min.css"/>
+    <script src="Scripts/JQuery/jquery-1.11.3.min.js"></script>
+    <script src="Scripts/JQuery/JQueryMobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="Scripts/canvasjs/canvasjs.min.js"></script>
+    <script src="Scripts/db-handling.js"></script>
+    <script src="Scripts/index-routing.js"></script>
+    <script src="Scripts/tools.js"></script>
+    <script src="Scripts/settings-page-handling.js"></script>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+<!--Popup message; Error and regular messages-->
+<div id="popup-msg" class="ui-popup ui-body-a ui-overlay-shadow ui-corner-all"
+     data-overlay-theme="a" data-theme="e">
+</div>
+
+<!--Main and first page-->
+<div data-role="page" id="home-page">
+
+    <!-- Left Menu panel-->
+    <div class="left-panel" data-role="panel" id="menu-panel-page1" data-display="overlay">
+        <div class="leftPanelHeader">Menu</div>
+        <hr>
+        <div class="menu-btn"><a href="#home-page" onclick="indexRouting.switchPage(1,1)">Home</a></div>
+        <div class="menu-btn"><a href="#balance-page" onclick="indexRouting.switchPage(2,1)">Balance</a></div>
+        <div class="menu-btn"><a href="#expense-item-page" onclick="indexRouting.switchPage(3,1)">Add Item</a></div>
+        <div class="menu-btn"><a href="#filter-page" onclick="indexRouting.switchPage(4,1)">Filter
+            Expense Items</a></div>
+        <div class="menu-btn"><a href="" onclick="indexRouting.openSettings()">Settings</a></div><div class="menu-btn"><a href="" onclick="indexRouting.switchPage(5,1)">About </a></div>
+    </div>
+
+    <!-- Header -->
+    <div data-role="header" data-position="inline">
+        <!-- Title-->
+        <div class="header-title">
+            Expenses Manager
+        </div>
+        <!-- Left icon-->
+        <div class="ui-btn-left">
+            <a href="#menu-panel-page1" class="left-panel-btn" data-role="button">
+                <img src="Images/menu.png" height="40" alt="menu"/>
+            </a>
+        </div>
+    </div>
+
+    <!-- Content body -->
+    <div data-role="main" class="ui-content">
+        <!-- Container for today date-->
+        <div id="today-date"></div>
+        <br>
+
+
+        </div>
+        <div align="center">
+            <h1>Expenses Manager Application <br> Mobile Course 2016</h1>
+            <p>This is an application that tracks your expenses <br>
+            and shows the balance of the money that was spent so far. <br>
+            Besides, it shows in which categories the money was spent. <br>
+            In the settings screen you can set your frequency (daily, weekly, monthly) expenses limit. <br>
+            This application was made by <br> Mor Shitrit and Ram Levy.</p>
+        </div>
+    </div>
+</div>
+
+<!--Page that displaying all categories and its items -->
+<div data-role="page" id="balance-page">
+
+    <!-- Left Menu panel-->
+    <div class="left-panel" data-role="panel" id="menu-panel-page2" data-display="overlay">
+        <div class="left-panel-header">Menu</div>
+        <hr>
+        <div class="menu-btn"><a href="#home-page" onclick="indexRouting.switchPage(1,2)">Home</a></div>
+        <div class="menu-btn"><a href="#balance-page" onclick="indexRouting.switchPage(2,2)">Balance</a></div>
+        <div class="menu-btn"><a href="#expense-item-page" onclick="indexRouting.switchPage(3,2)">Add Item</a></div>
+        <div class="menu-btn"><a href="#filter-page" onclick="indexRouting.switchPage(4,2)">Filter
+            Expense Items</a></div>
+        <div class="menu-btn"><a href="" onclick="indexRouting.openSettings()">Settings</a></div>
+        <div class="menu-btn"><a href="" onclick="indexRouting.switchPage(5,2)">About </a></div>
+    </div>
+
+    <!-- Header -->
+    <div data-role="header" data-position="inline">
+        <!-- Title-->
+        <div class="header-title">
+            Expenses Manager
+        </div>
+        <!-- Left icon-->
+        <div class="ui-btn-left">
+            <a href="#menu-panel-page2" class="left-panel-btn" data-role="button">
+                <img src="Images/menu.png" height="40" alt="menu"/>
+            </a>
+        </div>
+    </div>
+
+    <!-- Content body -->
+    <div data-role="main" class="ui-content">
+        <br>
+        <!-- Container for balance-->
+        <div id="total-balance" class="center-text">
+
+        </div>
+        <!--container for all categories and its items-->
+        <div id="categories">
+
+        </div>
+        <br>
+        <br>
+    </div>
+</div>
+
+<!--Page contains form to add new Expense Item -->
+<div data-role="page" id="expense-item-page">
+
+    <!-- Left Menu panel-->
+    <div class="left-panel" data-role="panel" id="menu-panel-page3" data-display="overlay">
+        <div class="left-panel-header">Menu</div>
+        <hr>
+        <div class="menu-btn"><a href="#home-page" onclick="indexRouting.switchPage(1,3)">Home</a></div>
+        <div class="menu-btn"><a href="#balance-page" onclick="indexRouting.switchPage(2,3)">Balance</a></div>
+        <div class="menu-btn"><a href="#expense-item-page" onclick="indexRouting.switchPage(3,3)">Add Item</a></div>
+
+        <div class="menu-btn"><a href="#filter-page" onclick="indexRouting.switchPage(4,3)">Filter
+            Expense Items</a></div>
+        <div class="menu-btn"><a href="" onclick="indexRouting.openSettings()">Settings</a></div>
+        <div class="menu-btn"><a href="" onclick="indexRouting.switchPage(5,3)">About </a></div>
+    </div>
+
+    <!-- Header -->
+    <div data-role="header" data-position="inline">
+        <!-- Title-->
+        <div class="header-title">
+            Expenses Manager
+        </div>
+        <!-- Left icon-->
+        <div class="ui-btn-left">
+            <a href="#menu-panel-page3" class="left-panel-btn" data-role="button">
+                <img src="Images/menu.png" height="40" alt="menu"/>
+            </a>
+        </div>
+    </div>
+
+    <!-- Content body -->
+    <div data-role="main" class="ui-content">
+        <!-- Add new Expense Item form-->
+        <form method="post" id="my-form">
+            <fieldset class="ui-field-contain">
+                <label for="category">Select Category:</label>
+                <select id="category">
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <label for="expense-item-name">Item name:</label>
+                <input type="text" id="expense-item-name" placeholder="Item name">
+            </fieldset>
+
+            <fieldset>
+                <label for="expense-item-price">Item price:</label>
+                <input type="number" step="any" min="0" id="expense-item-price"
+                       placeholder="Item price">
+            </fieldset>
+
+            <fieldset>
+                <label for="expense-item-datetime">Purchase date:</label>
+                <input type="date" id="expense-item-datetime">
+            </fieldset>
+
+            <fieldset>
+                <label for="expense-item-comment">Comments:</label>
+                <input type="text" id="expense-item-comment" placeholder="Comments">
+            </fieldset>
+
+            <input type="button" value="Save" data-inline="true"
+                   onclick="dbhandle.addNewOrUpdateExpenseItem()"/>
+        </form>
+    </div>
+</div>
+
+<!--Page contained display filter options and graphs  -->
+<div data-role="page" id="filter-page">
+
+    <!-- Left Menu panel-->
+    <div class="left-panel" data-role="panel" id="menu-panel-page4" data-display="overlay">
+        <div class="left-panel-header">Menu</div>
+        <hr>
+        <div class="menu-btn"><a href="#home-page" onclick="indexRouting.switchPage(1,4)">Home</a></div>
+        <div class="menu-btn"><a href="#balance-page" onclick="indexRouting.switchPage(2,4)">Balance</a></div>
+        <div class="menu-btn"><a href="#expense-item-page" onclick="indexRouting.switchPage(3,4)">Add Item</a></div>
+        <div class="menu-btn"><a href="#filter-page" onclick="indexRouting.initFilterForm()">Filter
+            Expense Items</a></div>
+        <div class="menu-btn"><a href="" onclick="indexRouting.openSettings()">Settings</a></div>
+        <div class="menu-btn"><a href="" onclick="indexRouting.switchPage(5,4)">About </a></div>
+    </div>
+    <!-- Header -->
+    <div data-role="header" data-position="inline">
+        <!-- Title-->
+        <div class="header-title">
+            Expenses Manager
+        </div>
+        <!-- Left icon-->
+        <div class="ui-btn-left">
+            <a href="#menu-panel-page4" class="left-panel-btn" data-role="button">
+                <img src="Images/menu.png" height="40" alt="menu"/>
+            </a>
+        </div>
+    </div>
+
+    <!-- Content body -->
+    <div data-role="main" class="ui-content">
+        <br>
+
+        <!-- Container for date field to filter between-->
+        <div id="dates-organize" class="ui-grid-a">
+            <div class="ui-block-a">
+                <label for="filter-date-from">From</label>
+                <input id="filter-date-from" type="date"/>
+            </div>
+            <div class="ui-block-b">
+                <label for="filter-date-to">To</label>
+                <input id="filter-date-to" type="date"/>
+            </div>
+        </div>
+
+        <!-- Category to choose for displaying its items-->
+        <label for="category">Select Category:</label>
+        <select name="Category" id="filter-categories">
+        </select>
+
+        <input id="organize-dates-button" type="button" value="Filter"
+               onclick="dbhandle.displayExpenseItemsBetweenDatesByCategory()"/>
+        <br>
+        <br>
+
+        <!-- Container for the filter items-->
+        <div id="filtered-categories">
+
+        </div>
+
+        <!-- Container for the first graph-->
+        <div class="chart-container" id="chart-container1">
+
+        </div>
+
+        <!-- Container for the second graph-->
+        <div class="chart-container" id="chart-container2">
+
+        </div>
+    </div>
+</div>
+<!--Page contained names of the creators  -->
+<div data-role="page" id="about-page">
+    <!-- Left Menu panel-->
+    <div class="left-panel" data-role="panel" id="menu-panel-page5" data-display="overlay">
+        <div class="left-panel-header">Menu</div>
+        <hr>
+        <div class="menu-btn"><a href="#home-page" onclick="indexRouting.switchPage(1,5)">Home</a></div>
+        <div class="menu-btn"><a href="#balance-page" onclick="indexRouting.switchPage(2,5)">Balance</a></div>
+        <div class="menu-btn"><a href="#expense-item-page" onclick="indexRouting.switchPage(3,5)">Add Item</a></div>
+        <div class="menu-btn"><a href="#filter-page" onclick="indexRouting.switchPage(4,5)">Filter
+            Expense Items</a></div>
+        <div class="menu-btn"><a href="" onclick="indexRouting.openSettings()">Settings</a></div>
+        <div class="menu-btn"><a href="" onclick="indexRouting.switchPage(5,5)">About </a></div>
+    </div>
+    <!-- Header -->
+    <div data-role="header" data-position="inline">
+        <!-- Title-->
+        <div class="header-title">
+            Expenses Manager
+        </div>
+        <!-- Left icon-->
+        <div class="ui-btn-left">
+            <a href="#menu-panel-page5" class="left-panel-btn" data-role="button">
+                <img src="Images/menu.png" height="40" alt="menu"/>
+            </a>
+        </div>
+    </div>
+
+    <!-- Content body -->
+    <div data-role="main" class="ui-content">
+        <h3 class='center-text underline-text'>Created By: </h3>
+        <h5 class='center-text'>Mor Shitrit and Ram Levy</h5>
+    </div>
+</div>
+
+</body>
+</html>

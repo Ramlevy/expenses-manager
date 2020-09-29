@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expenses Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="Scripts/JQuery/JQueryMobile/jquery.mobile-1.4.5.min.css"/>
+    <script src="Scripts/JQuery/jquery-1.11.3.min.js"></script>
+    <script src="Scripts/JQuery/JQueryMobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="Scripts/db-handling.js"></script>
+    <script src="Scripts/index-routing.js"></script>
+    <script src="Scripts/tools.js"></script>
+    <script src="Scripts/settings-page-handling.js"></script>
+
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+<!--Settings page-->
+<div data-role="page" id="settings-page">
+
+    <!-- Header-->
+    <div data-role="header">
+        <div class="header-title">
+            Expenses Manager
+        </div>
+    </div>
+
+    <!-- Body COntent-->
+    <div role="main" class="ui-content">
+        <!-- Form of the settings-->
+        <form id="Settings-form">
+
+            <!-- The amount of the current period limit-->
+            <fieldset>
+                <label for="expenses-limit">Expenses Limit:</label>
+                <input type="number" id="expenses-limit" placeholder="Enter your expense limit">
+            </fieldset>
+
+            <!-- What category to refer to the expense period-->
+            <fieldset class="ui-field-contain">
+                <label for="settings-category">Select Category:</label>
+                <select id="settings-category" data-role="none" >
+
+                </select>
+            </fieldset>
+
+            <!-- Type of the period (month/week/day)-->
+            <fieldset data-role="controlgroup"  data-type="horizontal">
+
+                <input type="radio" name="expense-period" id="radio1" value="Daily"/>
+                <label for="radio1">Daily</label>
+
+                <input type="radio" name="expense-period" id="radio2" value="Weekly"/>
+                <label for="radio2">Weekly</label>
+
+                <input type="radio" name="expense-period" id="radio3" value="Monthly"/>
+                <label for="radio3">Monthly</label>
+            </fieldset>
+
+            <!-- Start date of the current expense period-->
+            <fieldset>
+                <label for="start-expenses-date">Start expenses date:</label>
+                <input type="date" id="start-expenses-date">
+            </fieldset>
+
+            <!-- Save button-->
+            <input type="button" value="Save" data-inline="true"
+                   onclick="settings.updateCategory()"/>
+        </form>
+    </div>
+
+    <div data-role="popup" id="popup-msg" class="ui-content">
+
+    </div>
+</div>
+
+</body>
+</html>
